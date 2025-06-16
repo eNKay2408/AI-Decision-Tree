@@ -73,7 +73,7 @@ def plot_class_distribution(data, target_col, title, save_path=None):
     # Print statistics
     print(f"\n{title} Class Distribution:")
     print(class_counts)
-    print(f"Class proportions:\n{class_counts/len(data)*100:.2f}%")
+    print(f"Class proportions:\n{(class_counts/len(data)*100).round(2)}%")
 
 
 def plot_split_distributions(splits_dict, dataset_name, save_path=None):

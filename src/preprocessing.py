@@ -14,3 +14,7 @@ def load_and_preprocess(path):
     X = df.drop('species',axis=1)
     y = df['species']
     return X, y
+
+# The function will be imported and called from the notebook
+# Removing the example call
+# load_and_preprocess('data/penguins.csv')
