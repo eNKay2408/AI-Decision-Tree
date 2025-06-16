@@ -1,0 +1,5 @@
+Split Ratio,Train Size,Test Size,Train Class 0,Train Class 1,Test Class 0,Test Class 1
+40/60,118,179,64,54,96,83
+60/40,178,119,96,82,64,55
+80/20,237,60,128,109,32,28
+90/10,267,30,144,123,16,14
