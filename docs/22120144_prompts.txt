@@ -1,0 +1,82 @@
+
+I want to do the "Additional Dataset" part, please inspect the UC Irvine Archieve page to find out another dataset that is like this, have many features, contains both features and labels, include at least 300 samples, have multiple classes, there may be Missing value
+_attached the requirements pdf file_
+
+Please give me detailed step-by-step code for do sing steps 1,2,3 (please follow the provided PDF file as much as possible when it comes to dividing the data into subsets); for step 4, do the visualization of the data itself like specified how should i come about imputation of this dataset? It seems like there is no Exploratory Data Analysis in the requirements? How about some crude ones (for comments/ drawing insights/ comparison), please; please do all of this in Python Notebook (.ipynb), or just provide the code so that I can paste in the notebook
+
+please update #file:03_additional_dataset_analysis.ipynb  so the age imputation is class-wise imputation (group by class, then replace the missing values by median within the class' distribution), and also adding the notes stating it fits, like "robust to outlier, simple, yet ensure contextual awareness"; 
+
+I see that in the requirment file, i'm asked to split the dataset into 4 subset "feature_train: a set of training samples.
+• label_train: a set of labels corresponding to the samples in feature_train.
+• feature_test: a set of test samples with a structure to feature_train.
+• label_test: a set of labels corresponding to the samples in feature_test"
+Please explain these in details, what are their purpose, why do we need them, how do we make it and make sure that we do it right? WHat if we don't approach like this?
+#file:03_additional_dataset_analysis.ipynb  #file:AI-Project-2.pdf 
+--> answer:
+## Why Split the Dataset into feature_train, label_train, feature_test, and label_test?
+
+When building and evaluating machine learning models, it is essential to split the dataset into four subsets:
+
+- **feature_train**: The input features (all columns except the label) used to train the model.
+- **label_train**: The target labels (the class or value to predict) corresponding to each sample in feature_train.
+- **feature_test**: The input features for the test set, structured identically to feature_train, but not used during training.
+- **label_test**: The true labels for the test set, used to evaluate the model's performance.
+
+### Purpose and Importance
+- **Generalization**: Splitting ensures that the model is evaluated on data it has never seen before, providing a realistic estimate of its performance on new, unseen data.
+- **Avoiding Overfitting**: If we train and test on the same data, the model may simply memorize the answers (overfit), leading to poor performance on real-world data.
+- **Fair Comparison**: Using a separate test set allows us to compare different models or algorithms fairly.
+
+### How to Split Correctly
+- Use functions like `train_test_split` from scikit-learn, which can split both features and labels at the same time, ensuring that each sample's features and label stay together.
+- Use the `stratify` parameter (for classification) to maintain the same class distribution in both train and test sets.
+- Set a `random_state` for reproducibility.
+
+### What If We Don't Split This Way?
+- **Testing on Training Data**: The model may appear to perform very well, but this is misleading, as it has already seen the answers.
+- **Data Leakage**: Information from the test set could leak into the training process, invalidating the evaluation.
+- **Unreliable Results**: The model's reported accuracy or other metrics will not reflect its true ability to generalize to new data.
+
+**In summary:** Properly splitting the dataset into feature_train, label_train, feature_test, and label_test is a fundamental best practice in machine learning to ensure valid, reliable, and generalizable results.
+
+
+So the label_train and label_test is for checking, the former is during the trainning session (telling the model 'hey you're wrong please adjust the hidden params, the weights, etc'), while the latter is during the test ('hey you're wrong but this will be counted towards accuracy score, no chance of rebuilding') right?
+
+
+what does "split in a stratified fashion" mean? How is it different from ordinary or other splitting methods? How does it affect the data, the distribution, .etc?
+
+
+so in other words, to satisfy the requirements, from the original data, i need to make it into 4 subsets 4-6, 6-4, 8-2, 9-1 in terms of train-test; then for each subset, i seperate into feature_train, label_train, feature_set, label_test? And "stratified" here means that in the initial 4 subsets divided based on train-test ratio, there won't be any one same record that any 2 subsets share, but it must be ensure that the class distribution across them is similar? Does it need to go as far as being similar to the original whole data set ?
+
+
+according to this from the file, "his task sets up the training and test datasets for the upcoming experiments.
+Using the features and labels above, please prepare the following four subsets:
+• feature_train: a set of training samples.
+• label_train: a set of labels corresponding to the samples in feature_train.
+• feature_test: a set of test samples with a structure to feature_train.
+• label_test: a set of labels corresponding to the samples in feature_test.
+You need to shuffle the dataset before splitting and ensure it is split in a stratified fashion.
+Other parameters (if there are any) should remain at their default settings.
+There will be experiments on training and test sets with different proportions, including 40/60,
+60/40, 80/20, and 90/10 (train/test); therefore, you will need 16 subsets in total.
+Visualize the class distributions in all datasets (the original set, training sets, and test sets)
+across all proportions to demonstrate that they have been appropriately prepared"
+I first split into feature_train, label_train, .etc, then I split train-test; but I can do the other way around, right? It seems a bit more intuitive, at first we should try to make sure 4 subsets (each with different train-test ratio) possess the same class distribution first, then we can simply take out _train, _test chunk correspondingly
+
+
+please perform the suggested workflow, make sure to save the subsets into 16 subsets (16 variables), again, I think this is required, right, based on the text
+
+
+please add in the visualization; if it is stratified, the 4 visualization (after intial stratifed split, not the _train, _test split) should share common traits with that of the original dataset when it comes to class distribution, right ?
+
+
+I see in some graphs, the train (blue color) is more than the general (the result of merging train and test color?), right? And sometimes it's the test that is more. Only by a negligible margin, though, this is acceptable, and still satisfies "stratified split", right?
+--> answer:
+Yes, you are correct! In stratified splitting, the proportions of each class in the train and test sets are made as close as possible to the original dataset, but due to rounding and the discrete nature of splitting (especially with small class counts), there can be very small differences.
+
+Sometimes the train set may have a slightly higher or lower proportion for a class than the original.
+The same can happen for the test set.
+When you merge train and test, you recover the original distribution exactly.
+These negligible differences are normal and acceptable. As long as the class proportions in train and test are very close to the original, your split is considered stratified and satisfies the requirement.
+
+is there anything in #file:visualization_utils.py  that i can use to help visualize? Like less repetitive on my file; also please use the method generate_summary_table to generate the table, the save path should be in results/additional_dataset/data_split_result ?
