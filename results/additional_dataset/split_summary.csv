@@ -1,5 +1,5 @@
-Split ratio,Train size,Test size,Class 1,Class 2,Class 3,Class 4,Class 5,Class 6
-40/60,146,220,112,61,72,49,52,20
-60/40,219,147,112,61,72,49,52,20
-80/20,292,74,112,61,72,49,52,20
-90/10,329,37,112,61,72,49,52,20
+Split Ratio,Train Size,Test Size,Train Class 1,Test Class 1,Train Class 2,Test Class 2,Train Class 3,Test Class 3,Train Class 4,Test Class 4,Train Class 5,Test Class 5,Train Class 6,Test Class 6
+40/60,146,220,45,67,24,37,29,43,19,30,21,31,8,12
+60/40,219,147,67,45,37,24,43,29,29,20,31,21,12,8
+80/20,292,74,89,23,49,12,57,15,39,10,42,10,16,4
+90/10,329,37,100,12,55,6,65,7,44,5,47,5,18,2
