@@ -85,7 +85,7 @@ is there anything in #file:visualization_utils.py  that i can use to help visual
 
 ===============================================================================================================================================================
 
-# CLASSIFICATION MODELS AND EVALUATION 
+# CLASSIFICATION MODELS AND EVALUATION SOURCE CODE
 
 please modify the #file:03_additional_dataset_models_evaluation.ipynb  to use the data prepared in #file:03_additional_dataset_preparation.ipynb , then conducting experiments on the designated train/test proportions prepared by fitting an instance of sklearn.tree.DecisionTreeClassifier (using information gain)
 to each training set and visualize the resulting decision tree with Graphviz, please also add in a brief introduction comment at the start to tell what we will be doing in this file.
