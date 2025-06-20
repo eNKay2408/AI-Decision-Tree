@@ -1,3 +1,4 @@
+# DATA PREPARATION
 
 I want to do the "Additional Dataset" part, please inspect the UC Irvine Archieve page to find out another dataset that is like this, have many features, contains both features and labels, include at least 300 samples, have multiple classes, there may be Missing value
 _attached the requirements pdf file_
@@ -80,3 +81,17 @@ When you merge train and test, you recover the original distribution exactly.
 These negligible differences are normal and acceptable. As long as the class proportions in train and test are very close to the original, your split is considered stratified and satisfies the requirement.
 
 is there anything in #file:visualization_utils.py  that i can use to help visualize? Like less repetitive on my file; also please use the method generate_summary_table to generate the table, the save path should be in results/additional_dataset/data_split_result ?
+
+
+===============================================================================================================================================================
+
+# CLASSIFICATION MODELS AND EVALUATION 
+
+please modify the #file:03_additional_dataset_models_evaluation.ipynb  to use the data prepared in #file:03_additional_dataset_preparation.ipynb , then conducting experiments on the designated train/test proportions prepared by fitting an instance of sklearn.tree.DecisionTreeClassifier (using information gain)
+to each training set and visualize the resulting decision tree with Graphviz, please also add in a brief introduction comment at the start to tell what we will be doing in this file.
+For each of the above decision tree classifiers, predict the samples in the corresponding test set
+and generate a report using classification_report and confusion_matrix
+
+the confustion matrix is just a bland table, can it be made to be colorful, my lecturer's example is one with four sector, each with its own color (each vary in intensity), names, while the vertical ruler on the right exlain the association between the numbers and the color tone
+-> answer: The code now includes a colorful confusion matrix visualization after the text-based output. It uses seaborn's heatmap to display each sector with varying color intensity, class names on both axes, and a vertical colorbar on the right that explains the association between the numbers and the color tone. This should closely match your lecturer's example and make the confusion matrix much more visually informative.
+
