@@ -7,6 +7,15 @@ Please give me detailed step-by-step code for do sing steps 1,2,3 (please follow
 
 please update #file:03_additional_dataset_analysis.ipynb  so the age imputation is class-wise imputation (group by class, then replace the missing values by median within the class' distribution), and also adding the notes stating it fits, like "robust to outlier, simple, yet ensure contextual awareness"; 
 
+
+please add script that visualize the age histograms for each classes
+
+upon inspecting the age histogram for each class, i see that the columns may reach very high for some age ranges, like for class 5, the group 15-20 is the most, and it should be the value for the missing if the record is of class 5; currently my class-wise median satisfies this? Or do I have to replace it with the one with the most frequency?
+
+for categorical variables, like age, i should take mode, right? Since there are no ranks inherently to the age? Or would it be overfitting?
+
+it seems that the better alternative would to use a more sophisticated imputation method, please update #file:03_additional_dataset_preparation.ipynb , the imputation part, to use scikit-learn iterative imputation; this is definitely better than straight-off mode/ median, right? Since there might be relationship between age and other variables in each classes
+
 I see that in the requirment file, i'm asked to split the dataset into 4 subset "feature_train: a set of training samples.
 • label_train: a set of labels corresponding to the samples in feature_train.
 • feature_test: a set of test samples with a structure to feature_train.
@@ -82,6 +91,9 @@ These negligible differences are normal and acceptable. As long as the class pro
 
 is there anything in #file:visualization_utils.py  that i can use to help visualize? Like less repetitive on my file; also please use the method generate_summary_table to generate the table, the save path should be in results/additional_dataset/data_split_result ?
 
+now please update that the class imbalance ratio is printed before the visualization; and it's for each class (6 classes in my case); would it happen to have any type of graphs suited to display class imbalance/ ratios like this?
+--> answer: The notebook now prints the class counts and imbalance ratio for all 6 classes before any visualization. Additionally, a pie chart has been added alongside the bar chart to visually display the class imbalance and proportions. Both bar and pie charts are commonly used to illustrate class imbalance in classification datasets.
+
 
 ===============================================================================================================================================================
 
@@ -94,4 +106,8 @@ and generate a report using classification_report and confusion_matrix
 
 the confustion matrix is just a bland table, can it be made to be colorful, my lecturer's example is one with four sector, each with its own color (each vary in intensity), names, while the vertical ruler on the right exlain the association between the numbers and the color tone
 -> answer: The code now includes a colorful confusion matrix visualization after the text-based output. It uses seaborn's heatmap to display each sector with varying color intensity, class names on both axes, and a vertical colorbar on the right that explains the association between the numbers and the color tone. This should closely match your lecturer's example and make the confusion matrix much more visually informative.
+
+# Reference
+https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/ (17/6)
+https://pressbooks-dev.oer.hawaii.edu/introductorystatistics/chapter/skewness-and-the-mean-median-and-mode/ (20/6)
 
