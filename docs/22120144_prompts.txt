@@ -110,4 +110,4 @@ the confustion matrix is just a bland table, can it be made to be colorful, my l
 # Reference
 https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/ (17/6)
 https://pressbooks-dev.oer.hawaii.edu/introductorystatistics/chapter/skewness-and-the-mean-median-and-mode/ (20/6)
-
+https://scikit-learn.org/stable/modules/impute.html
