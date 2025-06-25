@@ -52,4 +52,33 @@ y = df['species']
 
 print("Preprocessing completed!")
 
+# Train test split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+print(f"\nTrain set: {X_train.shape[0]} samples, Test set: {X_test.shape[0]} samples")
 
+# Train decision tree
+print("\nTraining decision tree...")
+model = DecisionTreeClassifier(criterion='entropy', random_state=42)
+model.fit(X_train, y_train)
+print("Model trained!")
+
+# Evaluate model
+y_pred = model.predict(X_test)
+accuracy = accuracy_score(y_test, y_pred)
+print(f"\nTest accuracy: {accuracy:.4f}")
+
+# Create output directories
+os.makedirs("./results/accuracy_tables", exist_ok=True)
+os.makedirs("./visualizations/palmer_penguins", exist_ok=True)
+
+# Simple visualization
+plt.figure(figsize=(10, 6))
+sns.countplot(x=y, palette='viridis')
+plt.title("Class Distribution in Palmer Penguins Dataset")
+plt.xlabel("Penguin Species")
+plt.ylabel("Count")
+plt.tight_layout()
+plt.savefig("./visualizations/palmer_penguins/class_distribution.png")
+print("\nVisualization saved to ./visualizations/palmer_penguins/class_distribution.png")
+
+print("\nScript execution completed successfully!")
