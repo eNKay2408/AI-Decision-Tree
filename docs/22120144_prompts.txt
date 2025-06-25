@@ -94,6 +94,7 @@ is there anything in #file:visualization_utils.py  that i can use to help visual
 now please update that the class imbalance ratio is printed before the visualization; and it's for each class (6 classes in my case); would it happen to have any type of graphs suited to display class imbalance/ ratios like this?
 --> answer: The notebook now prints the class counts and imbalance ratio for all 6 classes before any visualization. Additionally, a pie chart has been added alongside the bar chart to visually display the class imbalance and proportions. Both bar and pie charts are commonly used to illustrate class imbalance in classification datasets.
 
+does this have one-hot encoding? #file:03_additional_dataset_preparation.ipynb, please apply one hot encoding
 
 ===============================================================================================================================================================
 
@@ -107,7 +108,77 @@ and generate a report using classification_report and confusion_matrix
 the confustion matrix is just a bland table, can it be made to be colorful, my lecturer's example is one with four sector, each with its own color (each vary in intensity), names, while the vertical ruler on the right exlain the association between the numbers and the color tone
 -> answer: The code now includes a colorful confusion matrix visualization after the text-based output. It uses seaborn's heatmap to display each sector with varying color intensity, class names on both axes, and a vertical colorbar on the right that explains the association between the numbers and the color tone. This should closely match your lecturer's example and make the confusion matrix much more visually informative.
 
+# 2.3 EVALUATION
+
+after building my models in python using sklearn library, what is classification report and confusion matrix? How to interpret them? What information can i derive from those? In terms of decision tree performance, what can be drawn out from those? How the two differs? 
+
+please review and polish this for my document
+"Classification report interpretation (the same for 4 all models)
+A classification report is a summary of performance metrics for each class:
+•	Precision: Percentage of correct positive predictions relative to total positive predictions
+•	Recall: Percentage of correct positive predictions relative to total actual positives.
+•	F1-Score: A weighted harmonic mean of precision and recall. The closer to 1, the better the model, with F1 being 2 * (Precision * Recall) / (Precision + Recall)
+•	Support: the number of actual samples in the test set when evaluating the model. 
+For the overall information, it typically includes:
+Accuracy: The rate of correct prediction the model has made.
+Macro avg: The unweighted average per label for each metric (Precision, Recall, F1-Score, Support)
+Weighted avg: The weighted average per label for each metric (all metrics except for Support)
+
+Confusion matrix interpretation (the same for all models)
+A confusion matrix is a n-by-n grid that shows the performance of the model by comparing its predicted labels with the true labels, with n being the number of classes. It presents the number of true positives, true negatives, false positives and false negatives the model has made for each class, with ‘positive’ and ‘negative’ referring to the target class.
+•	True positive: this is when the model predicts the instance to be of the target class and it is indeed.
+•	True negative: this is when the model predicts the instance to not belong to the target class and it is not.
+•	False positive: this is when the model predicts the instance to be of the target class although it is not.
+•	False negative: this is when the model predicts the instance to not belong to the target class even though it actually is.
+"
+
+Given these "Classification Report for (40/60 split):
+              precision    recall  f1-score   support
+
+           1       0.89      0.82      0.85        67
+           2       0.56      0.89      0.69        37
+           3       1.00      0.91      0.95        43
+           4       0.92      0.80      0.86        30
+           5       0.68      0.61      0.64        31
+           6       1.00      0.50      0.67        12
+
+    accuracy                           0.80       220
+   macro avg       0.84      0.76      0.78       220
+weighted avg       0.84      0.80      0.81       220"
+"Crude Confusion matrix for (40/60 split):
+[[55  7  0  0  5  0]
+ [ 2 33  0  0  2  0]
+ [ 0  2 39  1  1  0]
+ [ 0  5  0 24  1  0]
+ [ 5  6  0  1 19  0]
+ [ 0  6  0  0  0  6]]"
+Please give me paragraphs providing insigths and comments about the model performance
+
+
+a shorter, grouping together classes that do well, class that do badly, and classes that seems to confuse the model (based on the confusion matrix)
+
+write a same concise passage, but don't make headings and bullet points, instead just small paragraphs
+
+
+# TREE DEPTH ANALYSIS SOURCE CODE
+
+please add in the comment saying this part wwe will be focusing on 80/20 test set, and to consider how the depth of the tree affect the tree accuracy; then add in the code that follows:
+For each max_depth in max_depths (max_depths = [None, 2, 3, 4, 5, 6, 7]):
+run the classification tree model on the 80-20 set, and use Graphviz to visualize the tree, then extract out the accuracy metric in the classification_report() method, if possible, if not, just print out classification_report();
+the models, the data has been preped in #03_additional_dataset_preparation.ipynb and #03_additional_dataset_models_evaluation.ipynb
+
+in the visualization cell, please add in the code to output a plain table of accuracy vs tree_Depth that goes
+max_depth| None|1|2|3|4|5|6|7|
+Accuracy| | | | | | | | | |
+and fill in the accuracy
+
+utitlize the tabulate as referenced from https://learnpython.com/blog/print-table-in-python/  to make the tabular visualization
+
+please add in the plot to also have the columns, i mean, to make the plot not just point with line, but also has vertical bars like bar graph, to be more visually appealing
+
 # Reference
 https://vitalflux.com/pandas-impute-missing-values-mean-median-mode/ (17/6)
 https://pressbooks-dev.oer.hawaii.edu/introductorystatistics/chapter/skewness-and-the-mean-median-and-mode/ (20/6)
 https://scikit-learn.org/stable/modules/impute.html
+
+## and also the references in 22120144_interpretation.docx
