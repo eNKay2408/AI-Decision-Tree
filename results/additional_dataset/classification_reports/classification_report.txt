@@ -1,0 +1,56 @@
+Classification Report for (40/60 split):
+              precision    recall  f1-score   support
+
+           1       0.89      0.82      0.85        67
+           2       0.56      0.89      0.69        37
+           3       1.00      0.91      0.95        43
+           4       0.92      0.80      0.86        30
+           5       0.68      0.61      0.64        31
+           6       1.00      0.50      0.67        12
+
+    accuracy                           0.80       220
+   macro avg       0.84      0.76      0.78       220
+weighted avg       0.84      0.80      0.81       220
+
+Classification Report for (60/40 split):
+              precision    recall  f1-score   support
+
+           1       0.98      0.96      0.97        45
+           2       0.67      0.75      0.71        24
+           3       0.85      0.79      0.82        29
+           4       0.68      0.65      0.67        20
+           5       0.64      0.67      0.65        21
+           6       1.00      1.00      1.00         8
+
+    accuracy                           0.81       147
+   macro avg       0.80      0.80      0.80       147
+weighted avg       0.81      0.81      0.81       147
+
+Classification Report for (80/20 split):
+              precision    recall  f1-score   support
+
+           1       0.96      0.96      0.96        23
+           2       0.75      1.00      0.86        12
+           3       1.00      0.80      0.89        15
+           4       0.90      0.90      0.90        10
+           5       1.00      0.90      0.95        10
+           6       1.00      1.00      1.00         4
+
+    accuracy                           0.92        74
+   macro avg       0.93      0.93      0.92        74
+weighted avg       0.93      0.92      0.92        74
+
+Classification Report for (90/10 split):
+              precision    recall  f1-score   support
+
+           1       1.00      0.92      0.96        12
+           2       0.83      0.83      0.83         6
+           3       1.00      1.00      1.00         7
+           4       0.80      0.80      0.80         5
+           5       0.67      0.80      0.73         5
+           6       1.00      1.00      1.00         2
+
+    accuracy                           0.89        37
+   macro avg       0.88      0.89      0.89        37
+weighted avg       0.90      0.89      0.89        37
+
