@@ -1,0 +1,13 @@
+Classification Report - Split 3 (80-20)
+==================================================
+              precision    recall  f1-score   support
+
+      Adelie       1.00      0.97      0.98        30
+   Chinstrap       1.00      1.00      1.00        14
+      Gentoo       0.96      1.00      0.98        25
+
+    accuracy                           0.99        69
+   macro avg       0.99      0.99      0.99        69
+weighted avg       0.99      0.99      0.99        69
+
+Test Accuracy: 0.9855
