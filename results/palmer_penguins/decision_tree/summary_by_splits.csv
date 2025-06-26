@@ -1,0 +1,5 @@
+Split Ratio,Train Size,Test Size,Tree Nodes,Tree Depth,Tree Leaves,Test Accuracy
+40-60,137,207,13,5,7,0.9517
+60-40,206,138,17,4,9,0.9783
+80-20,275,69,25,5,13,0.9855
+90-10,309,35,25,5,13,1.0000
