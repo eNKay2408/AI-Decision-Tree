@@ -6,7 +6,7 @@
 
 ## Project Description
 
-This project implements and analyzes decision tree algorithms for classification tasks using different datasets. Our team explores the application of decision trees to healthcare data (Heart Disease), ecological data (Palmer Penguins), and an additional dataset to demonstrate the versatility of this machine learning technique.
+This project implements and analyzes decision tree algorithms for classification tasks using different datasets. Our team explores the application of decision trees to healthcare data (Heart Disease, Breast Cancer), and ecological data (Palmer Penguins) to demonstrate the versatility of this machine learning technique.
 
 The project aims to:
 1. Prepare and preprocess diverse datasets for decision tree analysis
@@ -22,7 +22,7 @@ Through this work, we demonstrate practical applications of decision trees in so
 | --- | --------- | -------- | ------------------ | ----------------------------- |
 | 1   | Van Chien | 22120037 | Heart Disease      | 22120037@student.hcmus.edu.vn |
 | 2   | Van Khanh | 22120158 | Palmer Penguins    | 22120158@student.hcmus.edu.vn |
-| 3   | Cat Huynh | 22120144 | Additional Dataset | 22120144@student.hcmus.edu.vn |
+| 3   | Cat Huynh | 22120144 | Breast Cancer      | 22120144@student.hcmus.edu.vn |
 | 4   | Duc Khai  | 22120149 | Coordinator        | 22120149@student.hcmus.edu.vn |
 
 ## Project Progress
@@ -31,34 +31,33 @@ Through this work, we demonstrate practical applications of decision trees in so
 - Milestone 3: Evaluation & Analysis (18/06 - 26/06)
 
 ## Folder Structure
-```
-datasets/: Contains raw data
+`datasets/: Contains raw data
 notebooks/: Jupyter notebooks for analysis
 src/: Shared utility code
 visualizations/: Charts and images
 results/: Analysis results
 docs/: Reports and documentation
-```
+`
 
 ## Installation
 1. Clone the repository:
-```bash
+`bash
 git clone https://github.com/eNKay2408/AI-Decision-Tree.git
 cd AI-Decision-Tree
-```
+`
 
 2. Create a virtual environment:
-```bash
+`bash
 python -m venv venv
 venv\Scripts\activate # On Windows
 source venv/bin/activate # On macOS/Linux
-```
+`
 
 3. Install required packages:
-```bash
+`bash
 pip install -r requirements.txt
-```
+`
 4. Launch Jupyter Notebook:
-```bash
+`bash
 jupyter notebook
-```
+`
